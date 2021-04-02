@@ -1,0 +1,28 @@
+{
+  "repo": {
+    "ep-cco": [
+      {
+        "chart1": {
+          "chart_path": "cco/argo/chart1",
+          "override_path": "cco/argo/helm-override"
+        },
+        "chart2": {
+          "chart_path": "cco/argo/chart2",
+          "override_path": "cco/argo/helm-override"
+        }
+      }
+    ],
+    "ep-data": [
+      {
+        "chart1": {
+          "chart_path": "data/chart1",
+          "override_path": "data/helm-override"
+        },
+        "chart2": {
+          "chart_path": "data/chart2",
+          "override_path": "data/helm-override"
+        }
+      }
+    ]
+  }
+}
