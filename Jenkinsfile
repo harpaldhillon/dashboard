@@ -37,5 +37,13 @@ spec:
                 }
             }
         }
+        stage('Checkout') {
+            steps {
+                script {
+checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: 'https://github.com/harpaldhillon/cco.git']]])
+                sh "ls -lart ./*"
+                }
+            }
+        }
     }
   }
