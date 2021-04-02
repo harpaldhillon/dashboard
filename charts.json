@@ -1,26 +1,26 @@
 {
   "repo": {
-    "ep-cco": [
+    "data": [
       {
-        "chart1": {
-          "chart_path": "cco/argo/chart1",
-          "override_path": "cco/argo/helm-override"
+        "postgresql": {
+          "chart_path": ".",
+          "override_path": "./helm-override"
         },
-        "chart2": {
-          "chart_path": "cco/argo/chart2",
-          "override_path": "cco/argo/helm-override"
+        "wordpress": {
+          "chart_path": ".",
+          "override_path": "./helm-override"
         }
       }
     ],
-    "ep-data": [
+    "cco": [
       {
-        "chart1": {
-          "chart_path": "data/chart1",
-          "override_path": "data/helm-override"
+        "kafka": {
+          "chart_path": "argo",
+          "override_path": "argo/helm-override"
         },
-        "chart2": {
-          "chart_path": "data/chart2",
-          "override_path": "data/helm-override"
+        "mariadb": {
+          "chart_path": ".",
+          "override_path": "./helm-override"
         }
       }
     ]
