@@ -1,5 +1,8 @@
 // Uses Declarative syntax to run commands inside a container.
 //
+
+def chartVars = ""
+
 pipeline {
     agent {
         kubernetes {
@@ -30,7 +33,7 @@ spec:
                 container('shell'){
                     script {
                         timestamps {
-                            def chartVars = readJSON file: "${WORKSPACE}/charts.json"
+                            chartVars = readJSON file: "${WORKSPACE}/charts.json"
                             print(chartVars)
                         }
                     }
