@@ -48,7 +48,7 @@ spec:
 
                     for (i = 0; i < repo_list.size(); i++)
                     {
-                        print(repo_list[i])
+                        print(repo_list[i].data)
                     }
 
                     // dir('cco'){
