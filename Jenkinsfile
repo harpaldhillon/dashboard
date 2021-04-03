@@ -41,13 +41,20 @@ spec:
             steps {
                 script {
 
-                    dir('cco'){
-                        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: 'https://github.com/harpaldhillon/cco.git']]])
+                    def repo_list = chartVars["repo"]
+
+                    for (i = 0; i < repo_list.size(); i++)
+                    {
+                        print(repo_list[i])
                     }
-                    dir('data'){
-                        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: 'https://github.com/harpaldhillon/data.git']]])
-                    }
-                    sh "ls -lart ./*"
+
+                    // dir('cco'){
+                    //     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: 'https://github.com/harpaldhillon/cco.git']]])
+                    // }
+                    // dir('data'){
+                    //     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: 'https://github.com/harpaldhillon/data.git']]])
+                    // }
+                    // sh "ls -lart ./*"
                 }
             }
         }
