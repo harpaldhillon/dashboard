@@ -36,9 +36,6 @@ spec:
                 container('shell'){
                     script {
                         timestamps {
-                            
-                            sh "ls -ltr"
-
                             chartVars = readJSON file: "${WORKSPACE}/charts.json", returnPojo: true
                             print(chartVars)
                         }
@@ -60,12 +57,14 @@ spec:
                     echo "$value.name"
                     echo "$value.chart_path"
                     echo "$value.override_path"
-
-                    //value.each{ key1,value1 ->
-                    //echo "Walked through key $key1 and value $value1"
-                    //}
-
+                    
+                    
+                    dir("$key"){
+                        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: "https://github.com/harpaldhillon/${entry.key}.git"]]])
                     }
+                    }
+
+                    sh "ls -lart ./*"
                 }
             }
         }
