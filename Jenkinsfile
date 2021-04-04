@@ -51,7 +51,7 @@ spec:
 
                     
                     repo_list.each{entry ->
-                        println("$entry.value")
+                        println("$entry.value".getClass())
 
 
                         // for (i = 0; i < "${entry.value}".size(); i++){
