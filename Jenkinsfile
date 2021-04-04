@@ -55,9 +55,9 @@ spec:
 
 
 
-                        //def obj = new groovy.json.JsonSlurper().parseText("$entry.value")
+                        def obj = new groovy.json.JsonSlurper().parseText("$entry.value".toString())
 
-                        //println(obj.getClass())
+                        println(obj.getClass())
 
                         //println("$entry.value")
 
