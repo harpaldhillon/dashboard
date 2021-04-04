@@ -39,8 +39,8 @@ spec:
                             
                             sh "ls -ltr"
 
-                            //chartVars = readJSON file: "${WORKSPACE}/charts.json", returnPojo: true
-                            //print(chartVars)
+                            chartVars = readJSON file: "${WORKSPACE}/charts.json", returnPojo: true
+                            print(chartVars)
 
                            // def s = new File("${WORKSPACE}/charts.json").text
 
@@ -58,7 +58,7 @@ spec:
             steps {
                 script {
 
-                    def repo_list = chartVars["repo"]
+                   /*  def repo_list = chartVars["repo"]
 
                     repo_list.each { key, value ->
     echo "Walked through key $key and value $value"
@@ -70,7 +70,7 @@ spec:
 
                     
                     repo_list.each{entry ->
-                     //   println("$entry.key")
+                    */  //   println("$entry.key")
                      //   println("$entry.value"[0])
 
                         //println(str)
@@ -107,7 +107,7 @@ spec:
                         //dir("$entry.key"){
                         //  checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: "https://github.com/harpaldhillon/${entry.key}.git"]]])
                         //}
-                    }
+                    //}
                     sh "ls -lart ./*"
                 }
             }
