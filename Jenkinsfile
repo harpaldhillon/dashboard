@@ -50,10 +50,8 @@ spec:
                     def repo_list = chartVars["repo"]
 
                     
-                    repo_list.each{
-                        key,value -> {
-                            println("hello")
-                        }
+                    repo_list.each{entry ->
+                        println("$entry.key")
                     }
 
                     // dir('cco'){
