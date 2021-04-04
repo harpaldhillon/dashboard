@@ -39,7 +39,7 @@ spec:
                             chartVars = readJSON file: "${WORKSPACE}/charts.json", returnPojo: true
                             print(chartVars)
 
-                            def s = new File("./charts.json").text
+                            def s = new File("$WORKSPACE/charts.json").text
 
                             def obj = new groovy.json.JsonSlurper().parseText(s)
                             repos = obj["repo"]
