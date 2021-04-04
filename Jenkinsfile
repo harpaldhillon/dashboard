@@ -53,13 +53,13 @@ spec:
                     repo_list.each{entry ->
                         def str = "$entry.value"
 
-                        def a = str.trim().replaceAll(~/^\[|\]$/, '').split(',').collect{ it.trim()}
+                        //def a = str.trim().replaceAll(~/^\[|\]$/, '').split(',').collect{ it.trim()}
 
-                        println(a)
+                        //println(a)
 
-                        println(a.getClass())
+                        //println(a.getClass())
 
-                        println(a[0])
+                        //println(a[0])
 
                         // for (i = 0; i < a.size(); i++){
                         //     a[i].each{entry1 ->
