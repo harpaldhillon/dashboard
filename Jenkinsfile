@@ -51,8 +51,11 @@ spec:
 
                     
                     repo_list.each{entry ->
-                        println("$entry.value")
+                        def str = "$entry.value"
 
+                        def a = str.trim().replaceAll(~/^\[|\]$/, '').split(',').collect{ it.trim()}
+
+                        println(a)
 
 
                         //def obj = new groovy.json.JsonSlurper().parseText("$entry.value".toString())
