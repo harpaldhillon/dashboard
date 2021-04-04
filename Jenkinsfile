@@ -53,11 +53,11 @@ spec:
                    def repo_list = chartVars["repo"]
 
                     repo_list.each { key, value ->
-                    echo "Walked through key $key and value $value"
+                    echo "Walked through key $key and value $value.name"
 
-                    value.each{ key1,value1 ->
-                    echo "Walked through key $key1 and value $value1"
-                    }
+                    //value.each{ key1,value1 ->
+                    //echo "Walked through key $key1 and value $value1"
+                    //}
 
                     }
                 }
