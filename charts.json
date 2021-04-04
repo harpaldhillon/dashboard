@@ -3,25 +3,25 @@
     "data": [
       {
         "name": "postgresql",
-        "chart_path": ".",
-        "override_path": "./helm-override"
+        "chart_path": "postgresql",
+        "override_path": "postgresql/helm-override"
       },
       {
         "name": "wordpress",
-        "chart_path": ".",
-        "override_path": "./helm-override"
+        "chart_path": "wordpress",
+        "override_path": "wordpress/helm-override"
       }
     ],
     "cco": [
       {
         "name": "kafka",
-        "chart_path": "./argo",
-        "override_path": "./argo/helm-override"
+        "chart_path": "argo/kafka",
+        "override_path": "argo/helm-override"
       },
       {
         "name": "mariadb",
-        "chart_path": ".",
-        "override_path": "./helm-override"
+        "chart_path": "mariadb",
+        "override_path": "mariadb/helm-override"
       }
     ]
   }
