@@ -55,6 +55,7 @@ spec:
                     repo_list.each { key, value ->
                     echo "Walked through key $key and value $value"
                     }
+                }
             }
         }
     }
