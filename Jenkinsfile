@@ -1,6 +1,9 @@
 // Uses Declarative syntax to run commands inside a container.
 //
 
+import groovy.json.JsonSlurper
+
+
 def chartVars = ""
 
 pipeline {
@@ -46,9 +49,16 @@ spec:
 
                     def repo_list = chartVars["repo"]
 
-                    for (i = 0; i < repo_list.size(); i++)
-                    {
-                        print(repo_list[i].data)
+                    // for (i = 0; i < repo_list.size(); i++)
+                    // {
+                    //     print(repo_list[i].data)
+                    // }
+
+                    repos.each{
+                      key, value -> {
+                        println(key)
+                        println(value)
+                      }
                     }
 
                     // dir('cco'){
