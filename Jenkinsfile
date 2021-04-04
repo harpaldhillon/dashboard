@@ -51,6 +51,9 @@ spec:
 
                     
                     repo_list.each{
+                        key,value -> {
+                            println("hello")
+                        }
                     }
 
                     // dir('cco'){
