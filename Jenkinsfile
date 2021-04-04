@@ -15,7 +15,7 @@ kind: Pod
 spec:
   containers:
   - name: helm
-    image: alpine/helm
+    image: alpine/helm:2.16.10
     command:
     - sleep
     args:
@@ -62,7 +62,7 @@ spec:
                                 
                                     sh "ls -ltr"
 
-                                    sh "helm repo update"
+                                    //sh "helm repo update"
 
                                     sh "$cmd"
                                 }
