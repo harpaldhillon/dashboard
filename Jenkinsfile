@@ -49,10 +49,14 @@ spec:
 
                     def repo_list = chartVars["repo"]
 
+                    repo_list.each { key, value ->
+    echo "Walked through key $key and value $value"
+}
+
                     
                     repo_list.each{entry ->
-                        println("$entry.key")
-                        println("$entry.value"[0])
+                     //   println("$entry.key")
+                     //   println("$entry.value"[0])
 
                         //println(str)
 
