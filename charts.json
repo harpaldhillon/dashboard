@@ -1,22 +1,10 @@
 {
   "repo": {
-    "data": [
-      {
-        "name": "postgresql",
-        "chart_path": ".",
-        "override_path": "postgresql/helm-overrides"
-      },
-      {
-        "name": "wordpress",
-        "chart_path": ".",
-        "override_path": "wordpress/helm-overrides"
-      }
-    ],
     "cco": [
       {
         "name": "kafka",
-        "chart_path": "argo",
-        "override_path": "argo/helm-overrides"
+        "chart_path": ".",
+        "override_path": "kafka/helm-overrides"
       },
       {
         "name": "mariadb",
