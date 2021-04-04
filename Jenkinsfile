@@ -36,6 +36,9 @@ spec:
                 container('shell'){
                     script {
                         timestamps {
+                            
+                            sh "ls -ltr"
+                            
                             chartVars = readJSON file: "${WORKSPACE}/charts.json", returnPojo: true
                             print(chartVars)
 
