@@ -53,7 +53,13 @@ spec:
                    def repo_list = chartVars["repo"]
 
                     repo_list.each { key, value ->
-                    echo "Walked through key $key and value $value.name"
+                    
+                    println("************************")
+                    
+                    echo "$key"
+                    echo "$value.name"
+                    echo "$value.chart_path"
+                    echo "$value.override_path"
 
                     //value.each{ key1,value1 ->
                     //echo "Walked through key $key1 and value $value1"
