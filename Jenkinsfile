@@ -57,6 +57,8 @@ spec:
 
                         println(a)
 
+                        println(a.getClass())
+
 
                         //def obj = new groovy.json.JsonSlurper().parseText("$entry.value".toString())
 
@@ -71,7 +73,7 @@ spec:
 
                         //}
 
-                        println("${entry.value}".size())
+                        //println("${entry.value}".size())
                         
                         //dir("$entry.key"){
                         //  checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: "https://github.com/harpaldhillon/${entry.key}.git"]]])
