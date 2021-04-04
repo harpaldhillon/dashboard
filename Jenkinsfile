@@ -52,7 +52,7 @@ spec:
                     
                     repo_list.each{entry ->
                         println("$entry.key")
-                        println("$entry.value")
+                        println("$entry.value")[0]
 
                         //println(str)
 
