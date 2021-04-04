@@ -57,7 +57,12 @@ spec:
 
                         println(a)
 
-                        println(a.getClass())
+                        //println(a.getClass())
+
+                        for (i = 0; i < str.size(); i++){
+                            println(str[i])
+                        }
+
 
 
                         //def obj = new groovy.json.JsonSlurper().parseText("$entry.value".toString())
