@@ -54,12 +54,11 @@ spec:
                     println("************************")
                     
                     echo "$key"
-                    echo "$value.name"
-                    echo "$value.chart_path"
-                    echo "$value.override_path"
 
                     value.each{
                         echo "$it.name"
+                        echo "$it.chart_path"
+                        echo "$it.override_path"
                     }
                     
                     
