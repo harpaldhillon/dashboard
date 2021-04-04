@@ -57,14 +57,7 @@ spec:
                           checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: "https://github.com/harpaldhillon/${entry.key}.git"]]])
                         }
                     }
-
-                    
-
-                     
-                    // dir('data'){
-                    //     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: 'https://github.com/harpaldhillon/data.git']]])
-                    // }
-                    // sh "ls -lart ./*"
+                    sh "ls -lart ./*"
                 }
             }
         }
