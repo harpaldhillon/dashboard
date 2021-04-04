@@ -51,13 +51,15 @@ spec:
 
                     
                     repo_list.each{entry ->
-                        println("$entry.value".toString())
+                        println("$entry.value".toString().getClass())
 
-                        def obj = new groovy.json.JsonSlurper().parseText("$entry.value")
 
-                        println(obj.getClass())
 
-                        println("$entry.value")
+                        //def obj = new groovy.json.JsonSlurper().parseText("$entry.value")
+
+                        //println(obj.getClass())
+
+                        //println("$entry.value")
 
 
                         // for (i = 0; i < "${entry.value}".size(); i++){
