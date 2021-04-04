@@ -38,16 +38,16 @@ spec:
                         timestamps {
                             
                             sh "ls -ltr"
-                            
-                            chartVars = readJSON file: "${WORKSPACE}/charts.json", returnPojo: true
-                            print(chartVars)
 
-                            def s = new File("${WORKSPACE}/charts.json").text
+                            //chartVars = readJSON file: "${WORKSPACE}/charts.json", returnPojo: true
+                            //print(chartVars)
 
-                            def obj = new groovy.json.JsonSlurper().parseText(s)
-                            repos = obj["repo"]
+                           // def s = new File("${WORKSPACE}/charts.json").text
 
-                            println(repos)
+                           // def obj = new groovy.json.JsonSlurper().parseText(s)
+                           // repos = obj["repo"]
+
+                           // println(repos)
 
                         }
                     }
