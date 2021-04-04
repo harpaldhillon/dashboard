@@ -57,6 +57,10 @@ spec:
                     echo "$value.name"
                     echo "$value.chart_path"
                     echo "$value.override_path"
+
+                    value.each{
+                        echo "$it.name"
+                    }
                     
                     
                     dir("$key"){
