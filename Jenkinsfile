@@ -59,8 +59,8 @@ spec:
 
                         //println(a.getClass())
 
-                        for (i = 0; i < str.size(); i++){
-                            println(str[i])
+                        for (i = 0; i < a.size(); i++){
+                            println(a[i])
                         }
 
 
