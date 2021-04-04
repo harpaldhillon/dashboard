@@ -62,7 +62,9 @@ spec:
                                 
                                     sh "ls -ltr"
 
-                                    //sh "$cmd"
+                                    sh "helm repo update"
+
+                                    sh "$cmd"
                                 }
                             }
                         }
