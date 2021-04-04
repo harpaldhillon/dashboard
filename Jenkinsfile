@@ -61,8 +61,8 @@ spec:
 
                         for (i = 0; i < a.size(); i++){
                             a[i].each{
-                                key1,value1 -> {
-                                    
+                                entry1 -> {
+
                                 }
                             }
                         }
