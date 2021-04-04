@@ -51,7 +51,10 @@ spec:
 
                     
                     repo_list.each{entry ->
-                        def str = "$entry.value"
+                        println("$entry.key")
+                        println("$entry.value")
+
+                        //println(str)
 
                         //def a = str.trim().replaceAll(~/^\[|\]$/, '').split(',').collect{ it.trim()}
 
