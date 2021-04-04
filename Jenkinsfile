@@ -62,6 +62,7 @@ spec:
                         for (i = 0; i < a.size(); i++){
                             a[i].each{entry1 ->
                               println("$entry1")
+                            }
                         }
 
                         //def obj = new groovy.json.JsonSlurper().parseText("$entry.value".toString())
