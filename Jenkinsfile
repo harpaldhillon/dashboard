@@ -53,7 +53,7 @@ spec:
                     repo_list.each{entry ->
                         println("$entry.key")
 
-                        for (i = 0; i < "${entry.value}".size(); i++){entry ->
+                        for (i = 0; i < "${entry.value}".size(); i++){
                       
                             println("${entry.value}"[i])
 
