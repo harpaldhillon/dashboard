@@ -60,7 +60,11 @@ spec:
                         //println(a.getClass())
 
                         for (i = 0; i < a.size(); i++){
-                            println(a[i])
+                            a[i].each{
+                                key1,value1 -> {
+                                    
+                                }
+                            }
                         }
 
                         //def obj = new groovy.json.JsonSlurper().parseText("$entry.value".toString())
