@@ -61,6 +61,12 @@ spec:
                     
                     dir("$key"){
                         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: "https://github.com/harpaldhillon/${key}.git"]]])
+                    
+                        ["bld", "int", "prd"].each {
+                            def cmd = "helm template -f " + "$value.override_path" + "/" + "$value.name" + "-${it}.yaml" + " --output-dir out "  +  "$value.chart_path" + "/" + "$value.name"
+                        
+                            println(cmd)
+                        }
                     }
                     }
 
