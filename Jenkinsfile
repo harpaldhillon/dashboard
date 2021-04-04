@@ -49,7 +49,7 @@ spec:
 
                     def repo_list = chartVars["repo"]
 
-                    repo_list.each { key, value ->
+                    chartVars.each { key, value ->
     echo "Walked through key $key and value $value"
 }
 
