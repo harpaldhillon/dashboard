@@ -60,9 +60,9 @@ spec:
                         //println(a.getClass())
 
                         for (i = 0; i < a.size(); i++){
-                            a[i].each{entry ->
+                            a[i].each{entry1 ->
 
-                              println("$entry.key")
+                              println("$entry1.key")
 
                             }
                         }
