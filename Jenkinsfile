@@ -57,15 +57,18 @@ spec:
                             value.each{
                                 ["bld", "int", "prd"].each {item->
                                     
+
                                     def cmd = "helm template -f " + "$it.override_path" + "/" + "$it.name" + "-${item}.yaml" + " --output-dir out-dir "  +  "$it.chart_path" + "/" + "$it.name"
                                 
-                                    sh "$cmd"
+                                    sh "ls -ltr"
+
+                                    //sh "$cmd"
                                 }
                             }
                         }
                     }
 
-                    sh "ls -lart ./*"
+                    //sh "ls -lart ./*"
                 }
             }
             }
