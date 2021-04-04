@@ -45,43 +45,30 @@ spec:
         }
         stage('Checkout') {
             steps {
+                container('helm'){
                 script {
 
                    def repo_list = chartVars["repo"]
 
-                    repo_list.each { key, value ->
-
-                    value.each{
-                        //echo "$it.name"
-                        //echo "$it.chart_path"
-                        //echo "$it.override_path"
-
-                        ["bld", "int", "prd"].each {item->
-                            echo "$item:$it.name"
-
-                            def cmd = "helm template -f " + "$it.override_path" + "/" + "$it.name" + "-${item}.yaml" + " --output-dir out "  +  "$it.chart_path" + "/" + "$it.name"
+                    repo_list.each { key, value ->          
+                        dir("$key"){
+                            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: "https://github.com/harpaldhillon/${key}.git"]]])
                         
-                            println(cmd)
+                            value.each{
+                                ["bld", "int", "prd"].each {item->
+                                    echo "$item:$it.name"
+
+                                    def cmd = "helm template -f " + "$it.override_path" + "/" + "$it.name" + "-${item}.yaml" + " --output-dir out-dir "  +  "$it.chart_path" + "/" + "$it.name"
+                                
+                                    println(cmd)
+                                }
+                            }
                         }
-                    }
-                    
-                    
-                    dir("$key"){
-                        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: "https://github.com/harpaldhillon/${key}.git"]]])
-                    
-                        // ["bld", "int", "prd"].each {
-                            
-                        //     value.each{
-                        //         def cmd = "helm template -f " + "$value.override_path" + "/" + "$value.name" + "-${it}.yaml" + " --output-dir out "  +  "$value.chart_path" + "/" + "$value.name"
-                            
-                        //         println(cmd)
-                        //     }
-                        // }
-                    }
                     }
 
                     sh "ls -lart ./*"
                 }
+            }
             }
         }
     }
