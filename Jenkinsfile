@@ -62,7 +62,7 @@ spec:
                         for (i = 0; i < a.size(); i++){
                             a[i].each{entry1 ->
 
-                              println("$entry1.key")
+                              println("$entry1")
 
                             }
                         }
