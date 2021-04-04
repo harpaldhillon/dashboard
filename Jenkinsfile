@@ -49,17 +49,7 @@ spec:
 
                     def repo_list = chartVars["repo"]
 
-                    // for (i = 0; i < repo_list.size(); i++)
-                    // {
-                    //     print(repo_list[i].data)
-                    // }
-
-                    repos.each{
-                      key, value -> {
-                        println(key)
-                        println(value)
-                      }
-                    }
+                    
 
                     // dir('cco'){
                     //     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: 'https://github.com/harpaldhillon/cco.git']]])
