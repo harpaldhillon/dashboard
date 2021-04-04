@@ -51,13 +51,14 @@ spec:
 
                     
                     repo_list.each{entry ->
-                        println("$entry.key")
+                        println("$entry.value")
 
-                        for (i = 0; i < "${entry.value}".size(); i++){
+
+                        // for (i = 0; i < "${entry.value}".size(); i++){
                       
-                            println("${entry.value}"[i])
+                        //     println("${entry.value}"[i])
 
-                        }
+                        // }
                         
                         //dir("$entry.key"){
                         //  checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: "https://github.com/harpaldhillon/${entry.key}.git"]]])
