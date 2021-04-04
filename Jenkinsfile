@@ -58,15 +58,15 @@ spec:
             steps {
                 script {
 
-                   /*  def repo_list = chartVars["repo"]
+                   def repo_list = chartVars["repo"]
 
                     repo_list.each { key, value ->
-    echo "Walked through key $key and value $value"
+                    echo "Walked through key $key and value $value"
 
-                    value.each {key1,value1 ->
-                    echo "Walked through key $key1 and value $value1"
-                    }
-}
+                   // value.each {key1,value1 ->
+                    //echo "Walked through key $key1 and value $value1"
+                    //}
+            }
 
                     
                     repo_list.each{entry ->
