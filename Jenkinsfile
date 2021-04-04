@@ -68,9 +68,9 @@ spec:
                     //}
             }
 
-                    
+                    /*
                     repo_list.each{entry ->
-                    */  //   println("$entry.key")
+                      //   println("$entry.key")
                      //   println("$entry.value"[0])
 
                         //println(str)
