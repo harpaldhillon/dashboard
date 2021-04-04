@@ -50,15 +50,15 @@ spec:
                    def repo_list = chartVars["repo"]
 
                     repo_list.each { key, value ->
-                    
-                    println("************************")
-                    
-                    echo "$key"
 
                     value.each{
-                        echo "$it.name"
-                        echo "$it.chart_path"
-                        echo "$it.override_path"
+                        //echo "$it.name"
+                        //echo "$it.chart_path"
+                        //echo "$it.override_path"
+
+                        ["bld", "int", "prd"].each {item->
+                            echo "$item:$it.name"
+                        }
                     }
                     
                     
