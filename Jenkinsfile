@@ -51,11 +51,11 @@ spec:
 
                     
                     repo_list.each{entry ->
-                        println("$entry.value".getClass())
+                        println("$entry.value".toString())
 
-                        //def obj = new groovy.json.JsonSlurper().parseText("$entry.value")
+                        def obj = new groovy.json.JsonSlurper().parseText("$entry.value")
 
-                        //println(obj.getClass())
+                        println(obj.getClass())
 
                         println("$entry.value")
 
