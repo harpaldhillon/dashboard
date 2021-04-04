@@ -60,9 +60,7 @@ spec:
                         //println(a.getClass())
 
                         for (i = 0; i < a.size(); i++){
-                            a[i].each{
-                                entry1 -> {
-
+                            a[i].each{entry1 -> {
                                 }
                             }
                         }
