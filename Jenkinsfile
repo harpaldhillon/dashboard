@@ -55,18 +55,20 @@ spec:
 
 
 
-                        def obj = new groovy.json.JsonSlurper().parseText("$entry.value".toString())
+                        //def obj = new groovy.json.JsonSlurper().parseText("$entry.value".toString())
 
                         //println(obj.getClass())
 
                         //println("$entry.value")
 
 
-                        // for (i = 0; i < "${entry.value}".size(); i++){
+                        //for (i = 0; i < "${entry.value}".size(); i++){
                       
                         //     println("${entry.value}"[i])
 
-                        // }
+                        //}
+
+                        println("${entry.value}".size())
                         
                         //dir("$entry.key"){
                         //  checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'sidhana-github', url: "https://github.com/harpaldhillon/${entry.key}.git"]]])
