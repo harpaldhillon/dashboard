@@ -16,9 +16,9 @@ for i in ["bld"]:
 
     #print(dir_path)
 
-    print("${dir_path}")
+    print(f"{dir_path}")
 
-    out = subprocess.check_output("find /home/jenkins/agent/workspace/dashboard/out-dir-bld -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'", shell=True, universal_newlines=True)
+    out = subprocess.check_output(f"find {dir_path} -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'", shell=True, universal_newlines=True)
 
     file_list = out.split()
 
