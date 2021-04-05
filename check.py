@@ -46,6 +46,13 @@ for i in ["bld"]:
         print(i.upper(), "CPU", resources['requests']['cpu'])
         print(i.upper(), "Memory", resources['requests']['memory'])
 
+        obj_bld.append(resources['requests']['cpu'])
+        obj_bld.append(resources['requests']['memory'])
+        obj_bld.append(resources['limits']['cpu'])
+        obj_bld.append(resources['limits']['memory'])
+
+
+
 for i in ["int"]:
     file_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i+"/kafka/templates/deployment.yaml"
 
@@ -77,6 +84,11 @@ for i in ["int"]:
         print(i.upper(), "CPU", resources['requests']['cpu'])
         print(i.upper(), "Memory", resources['requests']['memory'])
 
+        obj_int.append(resources['requests']['cpu'])
+        obj_int.append(resources['requests']['memory'])
+        obj_int.append(resources['limits']['cpu'])
+        obj_int.append(resources['limits']['memory'])
+
 for i in ["prd"]:
     file_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i+"/kafka/templates/deployment.yaml"
 
@@ -107,6 +119,11 @@ for i in ["prd"]:
         print("************************************")
         print(i.upper(), "CPU", resources['requests']['cpu'])
         print(i.upper(), "Memory", resources['requests']['memory'])
+
+        obj_prd.append(resources['requests']['cpu'])
+        obj_prd.append(resources['requests']['memory'])
+        obj_prd.append(resources['limits']['cpu'])
+        obj_prd.append(resources['limits']['memory'])
 
 table = []
 
