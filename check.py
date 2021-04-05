@@ -6,6 +6,8 @@ print("Inside python script")
 
 charts = "kafka"
 
+obj_int = []
+
 headers = ["Environment","Component","Kind","Replicas","CPU (Request)", "Memory (Request)", "CPU (Limit)", "Memory (Limit)"]
 
 for i in ["bld","int","prd"]:
@@ -16,6 +18,8 @@ for i in ["bld","int","prd"]:
 
     print("****kind******")
     print(yaml_dict['kind'])
+    obj_int.append(yaml_dict['kind'])
+
 
     spec = yaml_dict['spec']
 
@@ -23,6 +27,8 @@ for i in ["bld","int","prd"]:
 
     print("****replicas******")
     print(spec['replicas'])
+
+    obj_int.append(spec['replicas'])
 
     container_spec=spec['template']['spec']['containers']
 
@@ -45,3 +51,6 @@ print(tabulate(table, headers, tablefmt="fancy_grid"))
 print("************************************")
 print("************************************")
 print("************************************")
+
+
+print(obj_int)
