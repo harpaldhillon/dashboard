@@ -85,7 +85,8 @@ spec:
         stage('Check yaml files'){
             steps{
                 container('python'){
-                    sh "check.py"
+                    sh "ls -ltr"
+                    sh "python $WORKSPACE/check.py"
                 }
             }
         }
