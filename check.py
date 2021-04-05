@@ -6,7 +6,7 @@ print("Inside python script")
 
 charts = "kafka"
 
-headers = ["cpu","memory"]
+headers = ["Environment","Component","Kind","Replicas","CPU (Request)", "Memory (Request)", "CPU (Limit)", "Memory (Limit)"]
 
 for i in ["bld","int","prd"]:
     file_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i+"/kafka/templates/deployment.yaml"
@@ -26,4 +26,6 @@ for i in ["bld","int","prd"]:
         print(i.upper(), "CPU", resources['requests']['cpu'])
         print(i.upper(), "Memory", resources['requests']['memory'])
 
-        print(tabulate(resources['requests'], headers, tablefmt="grid"))
+    
+table = [["BLD","Kafka","Deployment","2","128m","100Mi","228m","500Mi"]
+print(tabulate(table, headers, tablefmt="fancy_grid"))
