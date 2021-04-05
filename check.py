@@ -31,48 +31,96 @@ for i in ["bld"]:
       container_spec=spec['template']['spec']['containers']
 
       for x in container_spec:
-        obj_bld = []
+        obj = []
         name = x['name']
         resources = x['resources']
 
-        obj_bld.append(i.upper())
-        obj_bld.append("Kafka")
-        obj_bld.append(yaml_dict['kind'])    
-        obj_bld.append(spec['replicas'])
-        obj_bld.append(name)
+        obj.append(i.upper())
+        obj.append("Kafka")
+        obj.append(yaml_dict['kind'])    
+        obj.append(spec['replicas'])
+        obj.append(name)
 
-        obj_bld.append(resources['requests']['cpu'])
-        obj_bld.append(resources['requests']['memory'])
-        obj_bld.append(resources['limits']['cpu'])
-        obj_bld.append(resources['limits']['memory'])
+        obj.append(resources['requests']['cpu'])
+        obj.append(resources['requests']['memory'])
+        obj.append(resources['limits']['cpu'])
+        obj.append(resources['limits']['memory'])
 
-        table.append(obj_bld)
+        table.append(obj)
 
-# for i in ["int"]:
-#     file_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i+"/kafka/templates/deployment.yaml"
+for i in ["int"]:
+    dir_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i
 
-#     yaml_file = open(file_path).read()
-#     yaml_dict=yaml.load(yaml_file, yaml.SafeLoader)
-#     spec = yaml_dict['spec']
-#     container_spec=spec['template']['spec']['containers']
+    cmd = "find "+dir_path+" -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'"
 
-#     for x in container_spec:
-#         obj_int = []
-#         name = x['name']
-#         resources = x['resources']
-       
-#         obj_int.append(i.upper())
-#         obj_int.append("Kafka")
-#         obj_int.append(yaml_dict['kind'])    
-#         obj_int.append(spec['replicas'])
-#         obj_int.append(name)
+    print(cmd)
 
-#         obj_int.append(resources['requests']['cpu'])
-#         obj_int.append(resources['requests']['memory'])
-#         obj_int.append(resources['limits']['cpu'])
-#         obj_int.append(resources['limits']['memory'])
+    out = subprocess.check_output(cmd, shell=True, universal_newlines=True)
 
-#         table.append(obj_int)
+    file_list = out.split()
+
+    print(file_list)
+
+    for f in file_list:
+      yaml_file = open(f).read()
+      yaml_dict=yaml.load(yaml_file, yaml.SafeLoader) 
+      spec = yaml_dict['spec']
+      container_spec=spec['template']['spec']['containers']
+
+      for x in container_spec:
+        obj = []
+        name = x['name']
+        resources = x['resources']
+
+        obj.append(i.upper())
+        obj.append("Kafka")
+        obj.append(yaml_dict['kind'])    
+        obj.append(spec['replicas'])
+        obj.append(name)
+
+        obj.append(resources['requests']['cpu'])
+        obj.append(resources['requests']['memory'])
+        obj.append(resources['limits']['cpu'])
+        obj.append(resources['limits']['memory'])
+
+        table.append(obj)
+
+for i in ["prd"]:
+    dir_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i
+
+    cmd = "find "+dir_path+" -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'"
+
+    print(cmd)
+
+    out = subprocess.check_output(cmd, shell=True, universal_newlines=True)
+
+    file_list = out.split()
+
+    print(file_list)
+
+    for f in file_list:
+      yaml_file = open(f).read()
+      yaml_dict=yaml.load(yaml_file, yaml.SafeLoader) 
+      spec = yaml_dict['spec']
+      container_spec=spec['template']['spec']['containers']
+
+      for x in container_spec:
+        obj = []
+        name = x['name']
+        resources = x['resources']
+
+        obj.append(i.upper())
+        obj.append("Kafka")
+        obj.append(yaml_dict['kind'])    
+        obj.append(spec['replicas'])
+        obj.append(name)
+
+        obj.append(resources['requests']['cpu'])
+        obj.append(resources['requests']['memory'])
+        obj.append(resources['limits']['cpu'])
+        obj.append(resources['limits']['memory'])
+
+        table.append(obj)
 
 # for i in ["prd"]:
 #     file_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i+"/kafka/templates/deployment.yaml"
