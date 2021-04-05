@@ -15,7 +15,7 @@ kind: Pod
 spec:
   containers:
   - name: python
-    image: python
+    image: harpaldhillon/python-yaml
     command:
     - sleep
     args:
