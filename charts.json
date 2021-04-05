@@ -7,9 +7,9 @@
         "override_path": "kafka/helm-overrides"
       },
       {
-        "name": "postgresql",
+        "name": "wordpress",
         "chart_path": ".",
-        "override_path": "postgresql/helm-overrides"
+        "override_path": "wordpress/helm-overrides"
       }
     ]
   }
