@@ -14,9 +14,7 @@ headers = ["Environment","Component","Kind","Replicas", "Container Name", "CPU (
 for i in ["bld"]:
     dir_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i
 
-    #print(dir_path)
-
-    cmd = f"find {dir_path} -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'"
+    cmd = "find "+dir_path+" -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'"
 
     print(cmd)
 
