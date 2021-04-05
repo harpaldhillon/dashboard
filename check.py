@@ -26,6 +26,10 @@ for i in ["bld","int","prd"]:
         print(i.upper(), "CPU", resources['requests']['cpu'])
         print(i.upper(), "Memory", resources['requests']['memory'])
 
-    
-table = [["BLD","Kafka","Deployment","2","128m","100Mi","228m","500Mi"]
+table = []
+
+table = table.append("["BLD","Kafka","Deployment","2","128m","100Mi","228m","500Mi"]")
+table = table.append("["INT","Kafka","Deployment","3","228m","200Mi","528m","500Mi"]")
+table = table.append("["PRD","Kafka","Deployment","6","1228m","1200Mi","1528m","1500Mi"]")
+
 print(tabulate(table, headers, tablefmt="fancy_grid"))
