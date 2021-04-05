@@ -15,7 +15,7 @@ kind: Pod
 spec:
   containers:
   - name: python
-    image: alpine/python
+    image: python
     command:
     - sleep
     args:
