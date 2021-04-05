@@ -21,9 +21,13 @@ for i in ["bld"]:
 
     print("****kind******")
     print(yaml_dict['kind'])
+    
+    
+    
+    obj_bld.append(i.upper())
     obj_bld.append(yaml_dict['kind'])
 
-
+    
     spec = yaml_dict['spec']
 
     #print(spec)
@@ -49,6 +53,8 @@ for i in ["int"]:
 
     print("****kind******")
     print(yaml_dict['kind'])
+
+    obj_bld.append(i.upper())
     obj_int.append(yaml_dict['kind'])
 
 
@@ -77,6 +83,8 @@ for i in ["prd"]:
 
     print("****kind******")
     print(yaml_dict['kind'])
+
+    obj_bld.append(i.upper())
     obj_prd.append(yaml_dict['kind'])
 
 
