@@ -60,6 +60,8 @@ for i in ["int"]:
         obj_int.append(resources['limits']['cpu'])
         obj_int.append(resources['limits']['memory'])
 
+        table.append(obj_int)
+
 for i in ["prd"]:
     file_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i+"/kafka/templates/deployment.yaml"
 
@@ -85,15 +87,7 @@ for i in ["prd"]:
         obj_prd.append(resources['limits']['cpu'])
         obj_prd.append(resources['limits']['memory'])
 
-#table = []
-
-#table.append(["BLD","Kafka","Deployment","2","128m","100Mi","228m","500Mi"])
-#table.append(["INT","Kafka","Deployment","3","228m","200Mi","528m","500Mi"])
-#table.append(["PRD","Kafka","Deployment","6","1228m","1200Mi","1528m","1500Mi"])
-
-#table.append(obj_bld)
-#table.append(obj_int)
-#table.append(obj_prd)
+        table.append(obj_prd)
 
 
 print("************************************")
@@ -103,13 +97,3 @@ print(tabulate(table, headers, tablefmt="fancy_grid"))
 print("************************************")
 print("************************************")
 print("************************************")
-
-
-print("************************************")
-#print(obj_bld)
-print("************************************")
-#print(obj_int)
-print("************************************")
-#print(obj_prd)
-print("************************************")
-
