@@ -47,6 +47,10 @@ for i in ["bld"]:
         obj_bld.append(resources['limits']['cpu'])
         obj_bld.append(resources['limits']['memory'])
 
+        print("####################")
+        print(obj_bld)
+        print("####################")
+
         table.append(obj_bld)
 
 
