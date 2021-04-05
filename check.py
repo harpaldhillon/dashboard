@@ -16,7 +16,7 @@ for i in ["bld","int","prd"]:
 
     spec = yaml_dict['spec']
 
-    #print(spec)
+    print(spec)
 
     container_spec=spec['template']['spec']['containers']
 
