@@ -25,6 +25,7 @@ for i in ["bld"]:
     
     
     obj_bld.append(i.upper())
+    obj_bld.append("Kafka")
     obj_bld.append(yaml_dict['kind'])
 
     
@@ -54,7 +55,8 @@ for i in ["int"]:
     print("****kind******")
     print(yaml_dict['kind'])
 
-    obj_bld.append(i.upper())
+    obj_int.append(i.upper())
+    obj_int.append("Kafka")
     obj_int.append(yaml_dict['kind'])
 
 
@@ -84,7 +86,8 @@ for i in ["prd"]:
     print("****kind******")
     print(yaml_dict['kind'])
 
-    obj_bld.append(i.upper())
+    obj_prd.append(i.upper())
+    obj_prd.append("Kafka")
     obj_prd.append(yaml_dict['kind'])
 
 
