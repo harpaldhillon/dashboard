@@ -14,7 +14,9 @@ headers = ["Environment","Component","Kind","Replicas", "Container Name", "CPU (
 for i in ["bld"]:
     dir_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i
 
-    print(dir_path)
+    #print(dir_path)
+
+    print("${dir_path}")
 
     out = subprocess.check_output("find ${dir_path} -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'", shell=True, universal_newlines=True)
 
