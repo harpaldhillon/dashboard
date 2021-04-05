@@ -19,35 +19,24 @@ for i in ["bld"]:
     yaml_file = open(file_path).read()
     yaml_dict=yaml.load(yaml_file, yaml.SafeLoader)
 
-    print("****kind******")
-    print(yaml_dict['kind'])
-    
-    
-    
-    obj_bld.append(i.upper())
-    obj_bld.append("Kafka")
-    obj_bld.append(yaml_dict['kind'])
-
-    
+    #obj_bld.append(i.upper())
+   # obj_bld.append("Kafka")
+    #obj_bld.append(yaml_dict['kind'])    
     spec = yaml_dict['spec']
-
-    #print(spec)
-
-    print("****replicas******")
-    print(spec['replicas'])
-
-    obj_bld.append(spec['replicas'])
+    #obj_bld.append(spec['replicas'])
 
     container_spec=spec['template']['spec']['containers']
 
     for x in container_spec:
         name = x['name']
         resources = x['resources']
-        print("************************************")
-        print(i.upper(), "CPU", resources['requests']['cpu'])
-        print(i.upper(), "Memory", resources['requests']['memory'])
 
+        obj_bld.append(i.upper())
+        obj_bld.append("Kafka")
+        obj_bld.append(yaml_dict['kind'])    
+        obj_bld.append(spec['replicas'])
 
+        
         obj_bld.append(name)
 
         obj_bld.append(resources['requests']['cpu'])
@@ -140,8 +129,8 @@ table = []
 #table.append(["PRD","Kafka","Deployment","6","1228m","1200Mi","1528m","1500Mi"])
 
 table.append(obj_bld)
-table.append(obj_int)
-table.append(obj_prd)
+#table.append(obj_int)
+#table.append(obj_prd)
 
 
 print("************************************")
