@@ -65,7 +65,7 @@ spec:
                                     
                                     sh "mkdir -p $WORKSPACE/out-dir-${item}"
 
-                                    def cmd = "helm template -f " + "$it.override_path" + "/" + "$it.name" + "-${item}.yaml" + " --output-dir $WORKSPACE/out-dir-${item} "  +  "$it.chart_path" + "/" + "$it.name"
+                                    def cmd = "helm template --dry-run -f " + "$it.override_path" + "/" + "$it.name" + "-${item}.yaml" + " --output-dir $WORKSPACE/out-dir-${item} "  +  "$it.chart_path" + "/" + "$it.name"
                                 
                                     sh "ls -ltr"
 

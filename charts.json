@@ -1,15 +1,15 @@
 {
   "repo": {
-    "cco": [
+    "data": [
       {
         "name": "kafka",
         "chart_path": ".",
         "override_path": "kafka/helm-overrides"
       },
       {
-        "name": "mariadb",
+        "name": "postgresql",
         "chart_path": ".",
-        "override_path": "mariadb/helm-overrides"
+        "override_path": "postgresql/helm-overrides"
       }
     ]
   }
