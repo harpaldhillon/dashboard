@@ -16,7 +16,6 @@ headers = ["Environment","Component","Kind","Replicas", "Container Name", "CPU (
 
 
 for i in ["bld"]:
-    obj_bld = []
     file_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i+"/kafka/templates/deployment.yaml"
 
     yaml_file = open(file_path).read()
@@ -31,6 +30,7 @@ for i in ["bld"]:
     container_spec=spec['template']['spec']['containers']
 
     for x in container_spec:
+        obj_bld = []
         name = x['name']
         resources = x['resources']
 
