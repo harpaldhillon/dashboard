@@ -7,10 +7,41 @@ print("Inside python script")
 charts = "kafka"
 
 obj_int = []
+obj_bld = []
+obj_prd = []
 
 headers = ["Environment","Component","Kind","Replicas","CPU (Request)", "Memory (Request)", "CPU (Limit)", "Memory (Limit)"]
 
-for i in ["bld","int","prd"]:
+
+for i in ["bld"]:
+    file_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i+"/kafka/templates/deployment.yaml"
+
+    yaml_file = open(file_path).read()
+    yaml_dict=yaml.load(yaml_file, yaml.SafeLoader)
+
+    print("****kind******")
+    print(yaml_dict['kind'])
+    obj_bld.append(yaml_dict['kind'])
+
+
+    spec = yaml_dict['spec']
+
+    #print(spec)
+
+    print("****replicas******")
+    print(spec['replicas'])
+
+    obj_bld.append(spec['replicas'])
+
+    container_spec=spec['template']['spec']['containers']
+
+    for x in container_spec:
+        resources = x['resources']
+        print("************************************")
+        print(i.upper(), "CPU", resources['requests']['cpu'])
+        print(i.upper(), "Memory", resources['requests']['memory'])
+
+for i in ["int"]:
     file_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i+"/kafka/templates/deployment.yaml"
 
     yaml_file = open(file_path).read()
@@ -38,6 +69,34 @@ for i in ["bld","int","prd"]:
         print(i.upper(), "CPU", resources['requests']['cpu'])
         print(i.upper(), "Memory", resources['requests']['memory'])
 
+for i in ["prd"]:
+    file_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i+"/kafka/templates/deployment.yaml"
+
+    yaml_file = open(file_path).read()
+    yaml_dict=yaml.load(yaml_file, yaml.SafeLoader)
+
+    print("****kind******")
+    print(yaml_dict['kind'])
+    obj_prd.append(yaml_dict['kind'])
+
+
+    spec = yaml_dict['spec']
+
+    #print(spec)
+
+    print("****replicas******")
+    print(spec['replicas'])
+
+    obj_prd.append(spec['replicas'])
+
+    container_spec=spec['template']['spec']['containers']
+
+    for x in container_spec:
+        resources = x['resources']
+        print("************************************")
+        print(i.upper(), "CPU", resources['requests']['cpu'])
+        print(i.upper(), "Memory", resources['requests']['memory'])
+
 table = []
 
 table.append(["BLD","Kafka","Deployment","2","128m","100Mi","228m","500Mi"])
@@ -53,4 +112,11 @@ print("************************************")
 print("************************************")
 
 
+print("************************************")
+print(obj_bld)
+print("************************************")
 print(obj_int)
+print("************************************")
+print(obj_prd)
+print("************************************")
+
