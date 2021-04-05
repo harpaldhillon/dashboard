@@ -25,6 +25,8 @@ for i in ["bld"]:
     print(file_list)
 
     for f in file_list:
+      print("Processing file:")
+      print(f)
       yaml_file = open(f).read()
       yaml_dict=yaml.load(yaml_file, yaml.SafeLoader) 
       spec = yaml_dict['spec']
@@ -62,6 +64,8 @@ for i in ["int"]:
     print(file_list)
 
     for f in file_list:
+      print("Processing file:")
+      print(f)
       yaml_file = open(f).read()
       yaml_dict=yaml.load(yaml_file, yaml.SafeLoader) 
       spec = yaml_dict['spec']
@@ -99,6 +103,8 @@ for i in ["prd"]:
     print(file_list)
 
     for f in file_list:
+      print("Processing file:")
+      print(f)
       yaml_file = open(f).read()
       yaml_dict=yaml.load(yaml_file, yaml.SafeLoader) 
       spec = yaml_dict['spec']
