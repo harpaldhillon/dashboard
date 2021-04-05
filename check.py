@@ -6,14 +6,17 @@ print("Inside python script")
 
 charts = "kafka"
 
+
+table = []
 obj_int = []
-obj_bld = []
+#obj_bld = []
 obj_prd = []
 
 headers = ["Environment","Component","Kind","Replicas", "Container Name", "CPU (Request)", "Memory (Request)", "CPU (Limit)", "Memory (Limit)"]
 
 
 for i in ["bld"]:
+    obj_bld = []
     file_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i+"/kafka/templates/deployment.yaml"
 
     yaml_file = open(file_path).read()
@@ -43,6 +46,8 @@ for i in ["bld"]:
         obj_bld.append(resources['requests']['memory'])
         obj_bld.append(resources['limits']['cpu'])
         obj_bld.append(resources['limits']['memory'])
+
+        table.append(obj_bld)
 
 
 
@@ -122,13 +127,13 @@ for i in ["prd"]:
         obj_prd.append(resources['limits']['cpu'])
         obj_prd.append(resources['limits']['memory'])
 
-table = []
+#table = []
 
 #table.append(["BLD","Kafka","Deployment","2","128m","100Mi","228m","500Mi"])
 #table.append(["INT","Kafka","Deployment","3","228m","200Mi","528m","500Mi"])
 #table.append(["PRD","Kafka","Deployment","6","1228m","1200Mi","1528m","1500Mi"])
 
-table.append(obj_bld)
+#table.append(obj_bld)
 #table.append(obj_int)
 #table.append(obj_prd)
 
@@ -143,10 +148,10 @@ print("************************************")
 
 
 print("************************************")
-print(obj_bld)
+#print(obj_bld)
 print("************************************")
-print(obj_int)
+#print(obj_int)
 print("************************************")
-print(obj_prd)
+#print(obj_prd)
 print("************************************")
 
