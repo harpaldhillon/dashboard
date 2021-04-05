@@ -16,9 +16,11 @@ for i in ["bld"]:
 
     #print(dir_path)
 
-    print(f"{dir_path}")
+    cmd = f"find {dir_path} -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'"
 
-    out = subprocess.check_output(f"find {dir_path} -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'", shell=True, universal_newlines=True)
+    print(cmd)
+
+    out = subprocess.check_output(cmd, shell=True, universal_newlines=True)
 
     file_list = out.split()
 
