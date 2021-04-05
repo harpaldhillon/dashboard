@@ -10,7 +10,7 @@ obj_int = []
 obj_bld = []
 obj_prd = []
 
-headers = ["Environment","Component","Kind","Replicas","CPU (Request)", "Memory (Request)", "CPU (Limit)", "Memory (Limit)"]
+headers = ["Environment","Component","Kind","Replicas", "Container Name", "CPU (Request)", "Memory (Request)", "CPU (Limit)", "Memory (Limit)"]
 
 
 for i in ["bld"]:
@@ -41,10 +41,14 @@ for i in ["bld"]:
     container_spec=spec['template']['spec']['containers']
 
     for x in container_spec:
+        name = x['name']
         resources = x['resources']
         print("************************************")
         print(i.upper(), "CPU", resources['requests']['cpu'])
         print(i.upper(), "Memory", resources['requests']['memory'])
+
+
+        obj_bld.append(name)
 
         obj_bld.append(resources['requests']['cpu'])
         obj_bld.append(resources['requests']['memory'])
@@ -79,11 +83,13 @@ for i in ["int"]:
     container_spec=spec['template']['spec']['containers']
 
     for x in container_spec:
+        name = x['name']
         resources = x['resources']
         print("************************************")
         print(i.upper(), "CPU", resources['requests']['cpu'])
         print(i.upper(), "Memory", resources['requests']['memory'])
 
+        obj_int.append(name)
         obj_int.append(resources['requests']['cpu'])
         obj_int.append(resources['requests']['memory'])
         obj_int.append(resources['limits']['cpu'])
@@ -105,7 +111,7 @@ for i in ["prd"]:
 
     spec = yaml_dict['spec']
 
-    #print(spec)
+    print(spec)
 
     print("****replicas******")
     print(spec['replicas'])
@@ -115,11 +121,13 @@ for i in ["prd"]:
     container_spec=spec['template']['spec']['containers']
 
     for x in container_spec:
+        name = x['name']
         resources = x['resources']
         print("************************************")
         print(i.upper(), "CPU", resources['requests']['cpu'])
         print(i.upper(), "Memory", resources['requests']['memory'])
 
+        obj_prd.append(name)
         obj_prd.append(resources['requests']['cpu'])
         obj_prd.append(resources['requests']['memory'])
         obj_prd.append(resources['limits']['cpu'])
