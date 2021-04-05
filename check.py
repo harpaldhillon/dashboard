@@ -14,9 +14,15 @@ for i in ["bld","int","prd"]:
     yaml_file = open(file_path).read()
     yaml_dict=yaml.load(yaml_file, yaml.SafeLoader)
 
+    print("****kind******")
+    print(yaml_dict['kind'])
+
     spec = yaml_dict['spec']
 
-    print(spec)
+    #print(spec)
+
+    print("****replicas******")
+    print(spec['replicas'])
 
     container_spec=spec['template']['spec']['containers']
 
