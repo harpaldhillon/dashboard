@@ -14,6 +14,12 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
+  - name: python
+    image: alpine/python
+    command:
+    - sleep
+    args:
+    - infinity
   - name: helm
     image: alpine/helm
     command:
@@ -74,6 +80,13 @@ spec:
                     sh "ls -lart ./*"
                 }
             }
+            }
+        }
+        stage('Check yaml files'){
+            steps{
+                container('python'){
+                    sh "check.py"
+                }
             }
         }
     }
