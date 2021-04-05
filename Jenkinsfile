@@ -57,9 +57,9 @@ spec:
                             value.each{
                                 ["bld", "int", "prd"].each {item->
                                     
-                                    sh "mkdir -p $WORKSPACE/out-dir-${it}"
+                                    sh "mkdir -p $WORKSPACE/out-dir-${item}"
 
-                                    def cmd = "helm template -f " + "$it.override_path" + "/" + "$it.name" + "-${item}.yaml" + " --output-dir $WORKSPACE/out-dir-${it} "  +  "$it.chart_path" + "/" + "$it.name"
+                                    def cmd = "helm template -f " + "$it.override_path" + "/" + "$it.name" + "-${item}.yaml" + " --output-dir $WORKSPACE/out-dir-${item} "  +  "$it.chart_path" + "/" + "$it.name"
                                 
                                     sh "ls -ltr"
 
