@@ -9,7 +9,7 @@ charts = "kafka"
 table = []
 table_volume = []
 
-headers = ["Environment","Component","Kind","Replicas", "Container Name", "CPU (Request)", "Memory (Request)", "CPU (Limit)", "Memory (Limit)","Ports"]
+headers = ["Environment","Component","Kind","Replicas", "Container Name", "CPU (Request)", "Memory (Request)", "CPU (Limit)", "Memory (Limit)","Ports", "Ports Name"]
 
 headers_volumes = ["Environment","Component","Kind","Replicas", "Volume Name", "Access Mode", "Storage"]
 
@@ -57,6 +57,7 @@ for i in ["bld"]:
           obj.append(resources['limits']['cpu'])
           obj.append(resources['limits']['memory'])
           obj.append(p['containerPort'])
+          obj.append(p['name'])
 
           table.append(obj)
 
