@@ -16,8 +16,9 @@ headers_volumes = ["Environment","Component","Kind","Replicas", "Volume Name", "
 
 for i in ["bld"]:
     dir_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i
-    cmd = "find "+dir_path+" -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'"
+#    cmd = "find "+dir_path+" -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'"
 
+    cmd = "find "+dir_path+" -type f -name '*yaml' -exec grep -H 'StatefulSet' {} \;|awk -F: '{print $1}'"
     print(cmd)
 
     out = subprocess.check_output(cmd, shell=True, universal_newlines=True)
@@ -78,7 +79,8 @@ for i in ["bld"]:
 for i in ["int"]:
     dir_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i
 
-    cmd = "find "+dir_path+" -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'"
+    #cmd = "find "+dir_path+" -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'"
+    cmd = "find "+dir_path+" -type f -name '*yaml' -exec grep -H 'StatefulSet' {} \;|awk -F: '{print $1}'"
 
     print(cmd)
 
@@ -120,7 +122,8 @@ for i in ["int"]:
 for i in ["prd"]:
     dir_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i
 
-    cmd = "find "+dir_path+" -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'"
+    #cmd = "find "+dir_path+" -type f -name '*yaml' -exec grep -H 'Deployment\|StatefulSet' {} \;|awk -F: '{print $1}'"
+    cmd = "find "+dir_path+" -type f -name '*yaml' -exec grep -H 'StatefulSet' {} \;|awk -F: '{print $1}'"
 
     print(cmd)
 
