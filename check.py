@@ -59,7 +59,7 @@ for i in ["bld"]:
         for p in x['ports']:
           obj.append(p['containerPort'])
 
-        table.append(obj)
+          table.append(obj)
 
       for v in volume_templates:
         obj = []
