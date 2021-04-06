@@ -64,10 +64,10 @@ for i in ["bld"]:
         spec_volume = v['spec']
 
         obj.append(i.upper())
-        obj.append("Kafka")
+        obj.append(yaml_dict['metadata']['name'])
         obj.append(yaml_dict['kind'])    
         obj.append(spec['replicas'])
-        obj.append("test-volume")
+        obj.append(spec_volume['metadata']['name'])
 
         obj.append(spec_volume['accessModes'])
         obj.append(spec_volume['resources']['requests']['storage'])
