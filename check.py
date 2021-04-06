@@ -46,7 +46,7 @@ for i in ["bld"]:
         resources = x['resources']
 
         obj.append(i.upper())
-        obj.append("Kafka")
+        obj.append(yaml_dict['metadata']['name'])
         obj.append(yaml_dict['kind'])    
         obj.append(spec['replicas'])
         obj.append(name)
@@ -106,7 +106,7 @@ for i in ["int"]:
         resources = x['resources']
 
         obj.append(i.upper())
-        obj.append("Kafka")
+        obj.append(yaml_dict['metadata']['name'])
         obj.append(yaml_dict['kind'])    
         obj.append(spec['replicas'])
         obj.append(name)
@@ -148,7 +148,7 @@ for i in ["prd"]:
         resources = x['resources']
 
         obj.append(i.upper())
-        obj.append("Kafka")
+        obj.append(yaml_dict['metadata']['name'])
         obj.append(yaml_dict['kind'])    
         obj.append(spec['replicas'])
         obj.append(name)
