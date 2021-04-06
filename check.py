@@ -160,7 +160,7 @@ for i in ["prd"]:
 print("************************************")
 print("************************************")
 print("************************************")
-#print(tabulate(table, headers, tablefmt="fancy_grid"))
+print(tabulate(table, headers, tablefmt="fancy_grid"))
 print("************************************")
 print("************************************")
 print("************************************")
