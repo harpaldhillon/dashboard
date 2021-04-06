@@ -7,8 +7,11 @@ print("Inside python script")
 
 charts = "kafka"
 table = []
+table_volume = []
 
 headers = ["Environment","Component","Kind","Replicas", "Container Name", "CPU (Request)", "Memory (Request)", "CPU (Limit)", "Memory (Limit)"]
+
+headers_volumes = ["Environment","Component","Kind","Replicas", "Volume Name", "Access Mode", "Storage"]
 
 
 for i in ["bld"]:
@@ -32,6 +35,8 @@ for i in ["bld"]:
       spec = yaml_dict['spec']
       container_spec=spec['template']['spec']['containers']
 
+      volume_templates=spec['volumeClaimTemplates']
+
       for x in container_spec:
         obj = []
         name = x['name']
@@ -49,6 +54,24 @@ for i in ["bld"]:
         obj.append(resources['limits']['memory'])
 
         table.append(obj)
+
+      for v in volume_templates:
+        obj = []
+        #name = v['name']
+        spec_volume = v['spec']
+
+        obj.append(i.upper())
+        obj.append("Kafka")
+        obj.append(yaml_dict['kind'])    
+        obj.append(spec['replicas'])
+        obj.append("test-volume")
+
+        obj.append(spec_volume['accessModes'])
+        obj.append(spec_volume['resources']['requests']['storage'])
+        #obj.append(spec_volume['resources']['requests']['memory'])
+
+        table_volume.append(obj)
+    
 
 for i in ["int"]:
     dir_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i
@@ -128,38 +151,14 @@ for i in ["prd"]:
 
         table.append(obj)
 
-# for i in ["prd"]:
-#     file_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i+"/kafka/templates/deployment.yaml"
-
-#     yaml_file = open(file_path).read()
-#     yaml_dict=yaml.load(yaml_file, yaml.SafeLoader)
-
-#     spec = yaml_dict['spec']
-#     container_spec=spec['template']['spec']['containers']
-
-#     for x in container_spec:
-#         obj_prd = []
-#         name = x['name']
-#         resources = x['resources']
-
-#         obj_prd.append(i.upper())
-#         obj_prd.append("Kafka")
-#         obj_prd.append(yaml_dict['kind'])    
-#         obj_prd.append(spec['replicas'])
-#         obj_prd.append(name)
-
-#         obj_prd.append(resources['requests']['cpu'])
-#         obj_prd.append(resources['requests']['memory'])
-#         obj_prd.append(resources['limits']['cpu'])
-#         obj_prd.append(resources['limits']['memory'])
-
-#         table.append(obj_prd)
-
-
 print("************************************")
 print("************************************")
 print("************************************")
-print(tabulate(table, headers, tablefmt="fancy_grid"))
+#print(tabulate(table, headers, tablefmt="fancy_grid"))
 print("************************************")
 print("************************************")
 print("************************************")
+
+
+
+print(tabulate(table_volume, headers_volumes, tablefmt="fancy_grid"))
