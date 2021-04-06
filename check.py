@@ -67,7 +67,7 @@ for i in ["bld"]:
         obj.append(yaml_dict['metadata']['name'])
         obj.append(yaml_dict['kind'])    
         obj.append(spec['replicas'])
-        obj.append(spec_volume['metadata']['name'])
+        obj.append(v['metadata']['name'])
 
         obj.append(spec_volume['accessModes'])
         obj.append(spec_volume['resources']['requests']['storage'])
