@@ -116,6 +116,9 @@ for i in ["int"]:
         obj.append(resources['limits']['cpu'])
         obj.append(resources['limits']['memory'])
 
+        for p in x['ports']:
+          obj.append(p['containerPort'])
+
         table.append(obj)
 
 for i in ["prd"]:
@@ -154,6 +157,9 @@ for i in ["prd"]:
         obj.append(resources['requests']['memory'])
         obj.append(resources['limits']['cpu'])
         obj.append(resources['limits']['memory'])
+
+        for p in x['ports']:
+          obj.append(p['containerPort'])
 
         table.append(obj)
 
