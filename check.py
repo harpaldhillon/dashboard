@@ -9,7 +9,7 @@ charts = "kafka"
 table = []
 table_volume = []
 
-headers = ["Environment","Component","Kind","Replicas", "Container Name", "CPU (Request)", "Memory (Request)", "CPU (Limit)", "Memory (Limit)","Ports", "Ports Name"]
+headers = ["Environment","Component","Kind","Replicas", "Container Name", "CPU (Request)", "Memory (Request)", "CPU (Limit)", "Memory (Limit)","Port", "Port Name"]
 
 headers_volumes = ["Environment","Component","Kind","Replicas", "Volume Name", "Access Mode", "Storage"]
 
@@ -101,25 +101,25 @@ for i in ["int"]:
       container_spec=spec['template']['spec']['containers']
 
       for x in container_spec:
-        obj = []
-        name = x['name']
-        resources = x['resources']
-
-        obj.append(i.upper())
-        obj.append(yaml_dict['metadata']['name'])
-        obj.append(yaml_dict['kind'])    
-        obj.append(spec['replicas'])
-        obj.append(name)
-
-        obj.append(resources['requests']['cpu'])
-        obj.append(resources['requests']['memory'])
-        obj.append(resources['limits']['cpu'])
-        obj.append(resources['limits']['memory'])
-
         for p in x['ports']:
-          obj.append(p['containerPort'])
+          obj = []
+          name = x['name']
+          resources = x['resources']
 
-        table.append(obj)
+          obj.append(i.upper())
+          obj.append(yaml_dict['metadata']['name'])
+          obj.append(yaml_dict['kind'])    
+          obj.append(spec['replicas'])
+          obj.append(name)
+
+          obj.append(resources['requests']['cpu'])
+          obj.append(resources['requests']['memory'])
+          obj.append(resources['limits']['cpu'])
+          obj.append(resources['limits']['memory'])
+          obj.append(p['containerPort'])
+          obj.append(p['name'])
+
+          table.append(obj)
 
 for i in ["prd"]:
     dir_path="/home/jenkins/agent/workspace/dashboard/out-dir-"+i
@@ -143,25 +143,25 @@ for i in ["prd"]:
       container_spec=spec['template']['spec']['containers']
 
       for x in container_spec:
-        obj = []
-        name = x['name']
-        resources = x['resources']
-
-        obj.append(i.upper())
-        obj.append(yaml_dict['metadata']['name'])
-        obj.append(yaml_dict['kind'])    
-        obj.append(spec['replicas'])
-        obj.append(name)
-
-        obj.append(resources['requests']['cpu'])
-        obj.append(resources['requests']['memory'])
-        obj.append(resources['limits']['cpu'])
-        obj.append(resources['limits']['memory'])
-
         for p in x['ports']:
-          obj.append(p['containerPort'])
+          obj = []
+          name = x['name']
+          resources = x['resources']
 
-        table.append(obj)
+          obj.append(i.upper())
+          obj.append(yaml_dict['metadata']['name'])
+          obj.append(yaml_dict['kind'])    
+          obj.append(spec['replicas'])
+          obj.append(name)
+
+          obj.append(resources['requests']['cpu'])
+          obj.append(resources['requests']['memory'])
+          obj.append(resources['limits']['cpu'])
+          obj.append(resources['limits']['memory'])
+          obj.append(p['containerPort'])
+          obj.append(p['name'])
+
+          table.append(obj)
 
 print("************************************")
 print("************************************")
