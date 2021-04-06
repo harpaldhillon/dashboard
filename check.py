@@ -41,22 +41,21 @@ for i in ["bld"]:
       volume_templates=spec['volumeClaimTemplates']
 
       for x in container_spec:
-        obj = []
-        name = x['name']
-        resources = x['resources']
-
-        obj.append(i.upper())
-        obj.append(yaml_dict['metadata']['name'])
-        obj.append(yaml_dict['kind'])    
-        obj.append(spec['replicas'])
-        obj.append(name)
-
-        obj.append(resources['requests']['cpu'])
-        obj.append(resources['requests']['memory'])
-        obj.append(resources['limits']['cpu'])
-        obj.append(resources['limits']['memory'])
-
         for p in x['ports']:
+          obj = []
+          name = x['name']
+          resources = x['resources']
+
+          obj.append(i.upper())
+          obj.append(yaml_dict['metadata']['name'])
+          obj.append(yaml_dict['kind'])    
+          obj.append(spec['replicas'])
+          obj.append(name)
+
+          obj.append(resources['requests']['cpu'])
+          obj.append(resources['requests']['memory'])
+          obj.append(resources['limits']['cpu'])
+          obj.append(resources['limits']['memory'])
           obj.append(p['containerPort'])
 
           table.append(obj)
